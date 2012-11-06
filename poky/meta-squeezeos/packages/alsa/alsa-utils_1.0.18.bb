@@ -17,6 +17,7 @@ inherit autotools
 do_configure_append() {
 	for i in $(find ${S} -name Makefile) ; do
 		sed -i -e s:/usr/include/ncurses:${STAGING_INCDIR}/ncurses:g $i
+		sed -i -e s:-ltinfo::g $i
 	done
 }
 
