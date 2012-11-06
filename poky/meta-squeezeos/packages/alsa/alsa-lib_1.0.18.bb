@@ -30,7 +30,7 @@ EXTRA_OECONF = "\
 	     --disable-alisp \
 	     --enable-old-symbols \
 	     --disable-python \
-	     --with-pcm-plugins=hw,plug,extplug,multi,rate,route,empty"
+	     --with-pcm-plugins=hw,plug,extplug,multi,rate,route,empty,dmix,dsnoop,dshare"
 
 do_stage () {
 	oe_libinstall -so -C src libasound ${STAGING_LIBDIR}/
