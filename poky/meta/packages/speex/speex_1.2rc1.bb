@@ -16,7 +16,8 @@ SRC_URI[sha256sum] = "342f30dc57bd4a6dad41398365baaa690429660b10d866b7d508e8f117
 
 PARALLEL_MAKE = ""
 
-inherit autotools pkgconfig lib_package
+#inherit autotools pkgconfig lib_package
+inherit autotools_stage pkgconfig
 
 EXTRA_OECONF = " --enable-fixed-point --with-ogg-libraries=${STAGING_LIBDIR} \
                  --disable-float-api --disable-vbr \

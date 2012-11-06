@@ -10,11 +10,8 @@ SRC_URI[sha256sum] = "702a486c9bf8e19137d484ab5c49b4ad314eb5e1fe37062a72c0a0fa39
 
 S = "${WORKDIR}/json-c-${PV}"
 
-do_stage() {
-        autotools_stage_all
-        #oe_libinstall -so -a -C libjson ${STAGING_LIBDIR}
-         
-}
+#do_stage() {
+#        autotools_stage_all
+#}
 
-
-inherit autotools
+inherit autotools_stage pkgconfig

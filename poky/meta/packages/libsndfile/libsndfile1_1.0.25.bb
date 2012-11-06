@@ -20,7 +20,8 @@ S = "${WORKDIR}/libsndfile-${PV}"
 
 EXTRA_OECONF = "--disable-external-libs"
 
-inherit autotools lib_package pkgconfig
+#inherit autotools lib_package pkgconfig
+inherit autotools_stage pkgconfig
 
 do_configure_prepend_arm() {
 	export ac_cv_sys_largefile_source=1
@@ -28,6 +29,6 @@ do_configure_prepend_arm() {
 	ac_cv_sizeof_off_t=8
 }
 
-do_stage() {
-        autotools_stage_all
-}
+#do_stage() {
+#        autotools_stage_all
+#}
