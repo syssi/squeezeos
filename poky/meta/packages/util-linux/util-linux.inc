@@ -5,7 +5,7 @@ DEPENDS = "zlib ncurses"
 
 inherit autotools
 
-SRC_URI = "${KERNELORG_MIRROR}/pub/linux/utils/util-linux/util-linux-${PV}.tar.bz2 \
+SRC_URI = "http://mirrors.dotsrc.org/slackware/slackware-11.0/source/a/util-linux/util-linux-${PV}.tar.bz2 \
            file://gcc34.patch;patch=1 \
            file://MCONFIG \
            file://make_include \
