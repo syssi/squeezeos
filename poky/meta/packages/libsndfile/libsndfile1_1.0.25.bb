@@ -28,3 +28,6 @@ do_configure_prepend_arm() {
 	ac_cv_sizeof_off_t=8
 }
 
+do_stage() {
+        autotools_stage_all
+}
