@@ -18,4 +18,9 @@ SRC_URI = "http://downloads.slimdevices.com/poky-cache/opkg_svn.openmoko.org_.tr
 
 S = "${WORKDIR}/opkg"
 
+# Werror gives all kinds bounds issuses with gcc 4.3.3
+do_configure_prepend() {
+        sed -i -e s:-Werror::g ${S}/libopkg/Makefile.am
+}
+
 inherit autotools_stage pkgconfig
