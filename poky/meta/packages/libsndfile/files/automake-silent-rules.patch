@@ -1,0 +1,13 @@
+Index: libsndfile-1.0.25/configure.ac
+===================================================================
+--- libsndfile-1.0.25.orig/configure.ac	2011-07-13 10:59:57.000000000 +0200
++++ libsndfile-1.0.25/configure.ac	2012-11-06 21:35:14.787835972 +0100
+@@ -16,7 +16,7 @@
+ AC_CONFIG_HEADERS([src/config.h])
+ 
+ AM_INIT_AUTOMAKE($PACKAGE_NAME,$PACKAGE_VERSION)
+-AM_SILENT_RULES([yes])
++m4_ifdef([AM_SILENT_RULES], [AM_SILENT_RULES([yes])])
+ 
+ dnl Add parameters for aclocal
+ AC_SUBST(ACLOCAL_AMFLAGS, "-I M4")
