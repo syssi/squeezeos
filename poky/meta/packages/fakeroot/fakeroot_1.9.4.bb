@@ -7,7 +7,7 @@ RDEPENDS = "util-linux"
 RDEPENDS_virtclass-native = "util-linux-native"
 PR = "r2"
 
-SRC_URI = "${DEBIAN_MIRROR}/main/f/fakeroot/fakeroot_${PV}.tar.gz \
+SRC_URI = "http://snapshot.debian.org/archive/debian/20080330T000000Z/pool/main/f/fakeroot/fakeroot_${PV}.tar.gz \
            file://configure-libtool.patch;patch=1"
 	    
 inherit autotools_stage
