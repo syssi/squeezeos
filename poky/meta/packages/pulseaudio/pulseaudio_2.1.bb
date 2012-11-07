@@ -9,7 +9,8 @@ inherit gettext
 #perlnative
 
 SRC_URI = "http://freedesktop.org/software/pulseaudio/releases/pulseaudio-${PV}.tar.gz \
-  file://autoconf-silent-rules-fix.patch \
+  file://autoconf-silent-rules-fix.patch;patch=1 \
+  file://manipulate-required-alsa-version.patch;patch=1 \
   file://volatiles.04_pulse \
 "
 

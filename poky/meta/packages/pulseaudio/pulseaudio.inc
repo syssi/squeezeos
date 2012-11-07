@@ -30,19 +30,39 @@ inherit autotools pkgconfig
 USE_NLS = "yes"
 
 EXTRA_OECONF = "\
-		--disable-lynx \
-		--disable-polkit \
-		--without-jack \
-		--with-glib \
-		--with-alsa \
-		--with-oss \
-		--without-hal \
+		--disable-jack \
+		--enable-glib \
+		--enable-alsa \
+		--enable-oss \
 		--disable-hal \
 		--disable-orc \
 		--enable-tcpwrap=no \
-		--with-access-group=audio \
 		--disable-openssl \
+		--disable-x \
+		--disable-avahi \
+		--disable-dbus \
+		--with-system-user=pulse \
+		--with-system-group=pulse \
+		--with-access-group=audio \
+		--with-database=simple \
+		--disable-gconf \
+		--disable-tcpwrap \
+		--disable-nls \
+		--enable-oss-output \
+		--disable-oss-wrapper \
+		--disable-per-user-esound-socket \
+		--disable-solaris \
+		--disable-gtk2 \
+		--disable-asyncns \
+		--disable-lirc \
+		--disable-bluez \
 "
+
+# udev 115 is too old
+#		--disable-samplerate \
+#		--disable-glib2 \
+
+
 
 PARALLEL_MAKE = ""
 
@@ -110,12 +130,11 @@ pkg_postinst_${PN}-server() {
         fi
 }
 
-# TODO
-#python populate_packages_prepend() {
-#	plugindir = d.expand('${libdir}/pulse-${PV}/modules/')
-#	do_split_packages(d, plugindir, '^module-(.*)\.so$', 'pulseaudio-module-%s', 'PulseAudio module for %s', extra_depends='', prepend=True)
-#	do_split_packages(d, plugindir, '^lib(.*)\.so$', 'pulseaudio-lib-%s', 'PulseAudio library for %s', extra_depends='', prepend=True)
-#}
+python populate_packages_prepend() {
+	plugindir = d.expand('${libdir}/pulse-2.1/modules/', d)
+	do_split_packages(d, plugindir, '^module-(.*)\.so$', 'pulseaudio-module-%s', 'PulseAudio module for %s', extra_depends='' )
+	do_split_packages(d, plugindir, '^lib(.*)\.so$', 'pulseaudio-lib-%s', 'PulseAudio library for %s', extra_depends='' )
+}
 
 RDEPENDS_pulseaudio-server = " \
     pulseaudio-module-filter-apply \
