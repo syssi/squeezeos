@@ -9,10 +9,12 @@ LIC_FILES_CHKSUM = "file://GPL;md5=4325afd396febcb659c36b49533135d4 \
                     file://src/pulsecore/resampler.h;beginline=4;endline=23;md5=c3d539b93f8c82a1780bfa3cfa544a95"
 
 DEPENDS = "libatomics-ops liboil libsamplerate0 libsndfile1 libtool"
-# avahi
+# avahi has a lot of X11 dependencies, removed. 
 
 # optional
-#DEPENDS += "udev alsa-lib glib-2.0 dbus gconf"
+
+# pulseaudio requires udev >= 143. squeezeos provides udev 115 by default.
+#DEPENDS += "udev alsa-lib glib-2.0"
 DEPENDS += "alsa-lib glib-2.0"
 
 SRC_URI = "http://0pointer.de/lennart/projects/pulseaudio/pulseaudio-${PV}.tar.gz \
@@ -58,7 +60,8 @@ EXTRA_OECONF = "\
 		--disable-bluez \
 "
 
-# udev 115 is too old
+# disable samplerate and glib2 if we run out of space.
+#
 #		--disable-samplerate \
 #		--disable-glib2 \
 
@@ -77,9 +80,9 @@ do_install_append() {
 	install -d ${D}${sysconfdir}/default/volatiles
 	install -m 0644 ${WORKDIR}/volatiles.04_pulse  ${D}${sysconfdir}/default/volatiles/volatiles.04_pulse
 	
-#	if [ "x${TARGET_PFPU}" == "xsoft" ] ; then 
-#	     sed -i -e s:\;\ resample-method\ =\ sinc-fastest:resample-method\ =\ trivial: ${D}${sysconfdir}/pulse/daemon.conf
-#	fi
+	if [ "x${TARGET_PFPU}" == "xsoft" ] ; then 
+	     sed -i -e s:\;\ resample-method\ =\ sinc-fastest:resample-method\ =\ trivial: ${D}${sysconfdir}/pulse/daemon.conf
+	fi
 }
 
 #USERADD_PACKAGES = "pulseaudio-server"
