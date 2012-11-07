@@ -8,7 +8,7 @@ LIC_FILES_CHKSUM = "file://GPL;md5=4325afd396febcb659c36b49533135d4 \
                     file://src/modules/bluetooth/proximity-helper.c;beginline=1;endline=25;md5=e4cc710e40a4d900c2c294167bc58270 \
                     file://src/pulsecore/resampler.h;beginline=4;endline=23;md5=c3d539b93f8c82a1780bfa3cfa544a95"
 
-DEPENDS = "libatomics-ops liboil libsamplerate0 libsndfile1 libtool"
+DEPENDS = "libatomics-ops liboil libsamplerate0 libsndfile1 libjson libtool"
 # avahi has a lot of X11 dependencies, removed. 
 
 # optional

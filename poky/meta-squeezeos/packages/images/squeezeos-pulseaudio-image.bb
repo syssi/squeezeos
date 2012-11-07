@@ -29,3 +29,9 @@ IMAGE_INSTALL += "pulseaudio-server \
 		pulseaudio-module-rtp-send \
 		pulseaudio-module-remap-sink \
 		"
+
+# optional
+IMAGE_INSTALL += "pulseaudio-misc"
+
+# rsync is useful
+IMAGE_INSTALL += "rsync"
