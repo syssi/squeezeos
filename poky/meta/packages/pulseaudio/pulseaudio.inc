@@ -58,7 +58,9 @@ EXTRA_OECONF = "\
 		--disable-asyncns \
 		--disable-lirc \
 		--disable-bluez \
+		--disable-ipv6 \
 "
+# squeezeos does not support ipv6
 
 # disable samplerate and glib2 if we run out of space.
 #

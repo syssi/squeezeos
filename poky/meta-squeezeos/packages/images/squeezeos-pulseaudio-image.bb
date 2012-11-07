@@ -23,7 +23,6 @@ IMAGE_INSTALL += "liblua5.1-luartmp"
 
 # Pulseaudio 2.1
 IMAGE_INSTALL += "pulseaudio-server \
-		pulseaudio-module-volume-restore \
 		pulseaudio-module-native-protocol-tcp \
 		pulseaudio-module-rtp-recv \
 		pulseaudio-module-rtp-send \
