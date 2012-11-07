@@ -142,7 +142,6 @@ python populate_packages_prepend() {
 RDEPENDS_pulseaudio-server = " \
     pulseaudio-module-filter-apply \
     pulseaudio-module-filter-heuristics \
-    pulseaudio-module-udev-detect \
     pulseaudio-module-null-sink \
     pulseaudio-module-device-restore \
     pulseaudio-module-stream-restore \
@@ -161,6 +160,9 @@ RDEPENDS_pulseaudio-server = " \
     pulseaudio-module-position-event-sounds \
     pulseaudio-module-role-cork \
     pulseaudio-module-switch-on-port-available"
+
+#    pulseaudio-module-udev-detect \
+
 
 RDEPENDS_pulseaudio-module-console-kit =+ "consolekit"
 
